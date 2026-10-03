@@ -831,3 +831,466 @@ footer span {
     }
 
 }
+
+/* =========================
+   CHARACTER IMAGES
+========================= */
+
+.character-card {
+    cursor: pointer;
+}
+
+.character-image {
+    position: absolute;
+
+    right: 0;
+    bottom: 0;
+
+    width: 42%;
+    height: 100%;
+
+    object-fit: cover;
+
+    opacity: 0.55;
+
+    filter: grayscale(20%);
+
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 45%
+    );
+
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 45%
+    );
+
+    transition: 0.5s;
+
+    z-index: 1;
+}
+
+.character-card:hover .character-image {
+    opacity: 0.75;
+
+    transform: scale(1.03);
+}
+
+.character-card .character-content {
+    width: 65%;
+}
+
+
+/* =========================
+   CHARACTER MODAL
+========================= */
+
+.character-modal {
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    background: rgba(0, 0, 0, 0.82);
+
+    backdrop-filter: blur(12px);
+
+    z-index: 500;
+}
+
+.character-modal.active {
+    display: flex;
+}
+
+.character-modal-box {
+    position: relative;
+
+    width: min(950px, 100%);
+
+    max-height: 90vh;
+
+    display: flex;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(25, 25, 25, 0.98),
+            rgba(4, 4, 4, 0.99)
+        );
+
+    border: 1px solid #650000;
+
+    box-shadow:
+        0 0 50px rgba(100, 0, 0, 0.25);
+}
+
+.character-modal-box > img {
+    width: 40%;
+
+    object-fit: cover;
+
+    min-height: 500px;
+}
+
+.modal-details {
+    padding: 45px;
+
+    overflow-y: auto;
+}
+
+.modal-details h2 {
+    margin-bottom: 10px;
+}
+
+.modal-quote {
+    color: #777;
+
+    font-size: 13px;
+
+    margin-bottom: 30px;
+}
+
+.modal-info {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+
+    padding: 18px 0;
+
+    border-top: 1px solid #242424;
+    border-bottom: 1px solid #242424;
+}
+
+.modal-info span {
+    display: block;
+
+    color: #666;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 7px;
+}
+
+.modal-info strong {
+    display: block;
+
+    color: #bbb;
+
+    font-size: 10px;
+
+    line-height: 1.5;
+}
+
+.modal-bio {
+    color: #999;
+
+    line-height: 1.8;
+
+    font-size: 13px;
+
+    margin-top: 25px;
+}
+
+.modal-close {
+    position: absolute;
+
+    top: 12px;
+    right: 18px;
+
+    z-index: 10;
+
+    border: none;
+
+    background: transparent;
+
+    color: #aaa;
+
+    font-size: 35px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.modal-close:hover {
+    color: #d00000;
+}
+
+
+/* =========================
+   TRAILERS
+========================= */
+
+.game-intro,
+.inventory-intro {
+    color: #777;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    margin-bottom: 40px;
+
+    max-width: 650px;
+}
+
+.trailer-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+.trailer-card {
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    border: 1px solid #272727;
+
+    transition: 0.3s;
+}
+
+.trailer-card:hover {
+    border-color: #720000;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.trailer-card h3 {
+    font-family: "Cinzel", serif;
+
+    font-size: 18px;
+
+    margin-bottom: 15px;
+}
+
+.video-container {
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+
+    background: #000;
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+
+    border: none;
+}
+
+
+/* =========================
+   INVENTORY
+========================= */
+
+.inventory-section {
+    background:
+        linear-gradient(
+            180deg,
+            #050505,
+            #090101
+        );
+}
+
+.inventory {
+    max-width: 760px;
+
+    padding: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #191919,
+            #080808
+        );
+
+    border: 2px solid #3b3b3b;
+
+    box-shadow:
+        inset 0 0 30px rgba(0, 0, 0, 0.9),
+        0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.inventory-grid {
+    display: grid;
+
+    grid-template-columns: repeat(6, 1fr);
+
+    gap: 7px;
+}
+
+.inventory-slot {
+    aspect-ratio: 1 / 1;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #252525,
+            #111
+        );
+
+    border: 1px solid #454545;
+
+    transition: 0.2s;
+}
+
+.inventory-slot:hover {
+    border-color: #850000;
+}
+
+.inventory-slot.drag-over {
+    border-color: #c00000;
+
+    box-shadow:
+        0 0 15px rgba(190, 0, 0, 0.35);
+}
+
+.inventory-item {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 34px;
+
+    cursor: grab;
+
+    user-select: none;
+}
+
+.inventory-item:active {
+    cursor: grabbing;
+}
+
+
+/* =========================
+   INSTAGRAM
+========================= */
+
+.instagram-link {
+    display: block;
+
+    margin-top: 18px;
+
+    color: #8f0000;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+.instagram-link:hover {
+    color: #d00000;
+
+    text-shadow:
+        0 0 10px rgba(255, 0, 0, 0.7);
+}
+
+
+/* =========================
+   MOBILE ADDITIONS
+========================= */
+
+@media (max-width: 900px) {
+
+    .character-image {
+        width: 48%;
+    }
+
+    .character-card .character-content {
+        width: 70%;
+    }
+
+    .trailer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-info {
+        grid-template-columns: 1fr;
+    }
+
+    .inventory-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .character-image {
+        width: 100%;
+
+        opacity: 0.25;
+
+        mask-image: none;
+        -webkit-mask-image: none;
+    }
+
+    .character-card .character-content {
+        width: 100%;
+    }
+
+    .character-modal {
+        padding: 15px;
+    }
+
+    .character-modal-box {
+        display: block;
+
+        max-height: 92vh;
+
+        overflow-y: auto;
+    }
+
+    .character-modal-box > img {
+        width: 100%;
+
+        height: 280px;
+
+        min-height: 0;
+    }
+
+    .modal-details {
+        padding: 25px;
+    }
+
+    .inventory {
+        padding: 10px;
+    }
+
+}
