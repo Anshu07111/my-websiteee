@@ -1,25 +1,25 @@
 <html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Resident Evil Nerds | Made by Anshu</title>
 
-    <link rel="stylesheet" href="style.css">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@300;400;500;600&family=Nosifer&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="website css file.css">
-
+    <link rel="stylesheet" href="website css file.css">
 </head>
 
 <body>
 
     <!-- DARK OVERLAY -->
     <div class="background-overlay"></div>
+
 
     <!-- NAVBAR -->
     <header class="navbar">
@@ -33,6 +33,7 @@
             <a href="#home">HOME</a>
             <a href="#characters">CHARACTERS</a>
             <a href="#games">GAMES</a>
+            <a href="#inventory">INVENTORY</a>
             <a href="#organizations">ORGANIZATIONS</a>
             <a href="#timeline">TIMELINE</a>
         </nav>
@@ -91,14 +92,16 @@
     <section class="characters" id="characters">
 
         <div class="section-heading">
+
             <div>
                 <p class="section-label">CHARACTER DATABASE</p>
                 <h2>THE SURVIVORS</h2>
             </div>
 
             <p class="small-description">
-                Major characters from across the Resident Evil series.
+                Click a character to open their archive.
             </p>
+
         </div>
 
 
@@ -106,9 +109,13 @@
 
 
             <!-- LEON -->
-            <article class="character-card">
+            <article class="character-card" onclick="openCharacter('leon')">
 
                 <div class="character-number">01</div>
+
+                <img class="character-image"
+                     src="images/leon.webp"
+                     alt="Leon S. Kennedy">
 
                 <div class="character-content">
 
@@ -160,9 +167,13 @@
 
 
             <!-- JILL -->
-            <article class="character-card">
+            <article class="character-card" onclick="openCharacter('jill')">
 
                 <div class="character-number">02</div>
+
+                <img class="character-image"
+                     src="images/jill.webp"
+                     alt="Jill Valentine">
 
                 <div class="character-content">
 
@@ -213,9 +224,13 @@
 
 
             <!-- CHRIS -->
-            <article class="character-card">
+            <article class="character-card" onclick="openCharacter('chris')">
 
                 <div class="character-number">03</div>
+
+                <img class="character-image"
+                     src="images/chris.webp"
+                     alt="Chris Redfield">
 
                 <div class="character-content">
 
@@ -266,9 +281,13 @@
 
 
             <!-- CLAIRE -->
-            <article class="character-card">
+            <article class="character-card" onclick="openCharacter('claire')">
 
                 <div class="character-number">04</div>
+
+                <img class="character-image"
+                     src="images/claire.webp"
+                     alt="Claire Redfield">
 
                 <div class="character-content">
 
@@ -318,9 +337,13 @@
 
 
             <!-- ADA -->
-            <article class="character-card">
+            <article class="character-card" onclick="openCharacter('ada')">
 
                 <div class="character-number">05</div>
+
+                <img class="character-image"
+                     src="images/ada.webp"
+                     alt="Ada Wong">
 
                 <div class="character-content">
 
@@ -371,9 +394,13 @@
 
 
             <!-- WESKER -->
-            <article class="character-card villain">
+            <article class="character-card villain" onclick="openCharacter('wesker')">
 
                 <div class="character-number">06</div>
+
+                <img class="character-image"
+                     src="images/wesker.webp"
+                     alt="Albert Wesker">
 
                 <div class="character-content">
 
@@ -423,9 +450,13 @@
 
 
             <!-- ETHAN -->
-            <article class="character-card">
+            <article class="character-card" onclick="openCharacter('ethan')">
 
                 <div class="character-number">07</div>
+
+                <img class="character-image"
+                     src="images/ethan.webp"
+                     alt="Ethan Winters">
 
                 <div class="character-content">
 
@@ -460,7 +491,7 @@
                         Ethan's search for his missing wife takes him to
                         a remote Louisiana estate, where he becomes
                         entangled in another biological nightmare.
-                        His story continues into the events of Resident Evil Village.
+                        His story continues into Resident Evil Village.
                     </p>
 
                     <div class="games">
@@ -474,9 +505,13 @@
 
 
             <!-- CARLOS -->
-            <article class="character-card">
+            <article class="character-card" onclick="openCharacter('carlos')">
 
                 <div class="character-number">08</div>
+
+                <img class="character-image"
+                     src="images/carlos.webp"
+                     alt="Carlos Oliveira">
 
                 <div class="character-content">
 
@@ -529,49 +564,197 @@
     </section>
 
 
+    <!-- CHARACTER POPUP -->
+    <div class="character-modal" id="characterModal">
+
+        <div class="character-modal-box">
+
+            <button class="modal-close" onclick="closeCharacter()">×</button>
+
+            <img id="modalImage" src="" alt="Character">
+
+            <div class="modal-details">
+
+                <p id="modalRole" class="section-label"></p>
+
+                <h2 id="modalName"></h2>
+
+                <p id="modalQuote" class="modal-quote"></p>
+
+                <div class="modal-info">
+
+                    <p>
+                        <span>FIRST APPEARANCE</span>
+                        <strong id="modalFirst"></strong>
+                    </p>
+
+                    <p>
+                        <span>AFFILIATION</span>
+                        <strong id="modalAffiliation"></strong>
+                    </p>
+
+                    <p>
+                        <span>KNOWN FOR</span>
+                        <strong id="modalKnown"></strong>
+                    </p>
+
+                </div>
+
+                <p id="modalBio" class="modal-bio"></p>
+
+                <div id="modalGames" class="games"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
     <!-- GAMES -->
     <section class="games-section" id="games">
 
         <p class="section-label">THE SERIES</p>
 
-        <h2>KEY INCIDENTS</h2>
+        <h2>GAME TRAILERS</h2>
 
-        <div class="game-grid">
+        <p class="game-intro">
+            Watch official trailers from the Resident Evil series.
+        </p>
 
-            <div class="game-box">
-                <span>1998</span>
-                <h3>SPENCER MANSION</h3>
-                <p>
-                    The incident that exposed the horrors hidden inside
-                    Umbrella's research operations.
-                </p>
+        <div class="trailer-grid">
+
+            <div class="trailer-card">
+                <h3>RESIDENT EVIL 2</h3>
+                <div class="video-container">
+                    <iframe
+                        src="https://www.youtube.com/embed/VIDEO_ID_RE2"
+                        title="Resident Evil 2 Trailer"
+                        allowfullscreen>
+                    </iframe>
+                </div>
             </div>
 
-            <div class="game-box">
-                <span>1998</span>
-                <h3>RACCOON CITY</h3>
-                <p>
-                    A catastrophic outbreak transforms the city into
-                    the center of a biological disaster.
-                </p>
+            <div class="trailer-card">
+                <h3>RESIDENT EVIL 3</h3>
+                <div class="video-container">
+                    <iframe
+                        src="https://www.youtube.com/embed/VIDEO_ID_RE3"
+                        title="Resident Evil 3 Trailer"
+                        allowfullscreen>
+                    </iframe>
+                </div>
             </div>
 
-            <div class="game-box">
-                <span>2004</span>
-                <h3>EUROPEAN VILLAGE</h3>
-                <p>
-                    Leon is sent on a mission involving the kidnapping
-                    of the president's daughter.
-                </p>
+            <div class="trailer-card">
+                <h3>RESIDENT EVIL 4</h3>
+                <div class="video-container">
+                    <iframe
+                        src="https://www.youtube.com/embed/VIDEO_ID_RE4"
+                        title="Resident Evil 4 Trailer"
+                        allowfullscreen>
+                    </iframe>
+                </div>
             </div>
 
-            <div class="game-box">
-                <span>2017</span>
-                <h3>BAKER INCIDENT</h3>
-                <p>
-                    Ethan Winters enters a Louisiana property hiding
-                    a terrifying biological mystery.
-                </p>
+            <div class="trailer-card">
+                <h3>RESIDENT EVIL 5</h3>
+                <div class="video-container">
+                    <iframe
+                        src="https://www.youtube.com/embed/VIDEO_ID_RE5"
+                        title="Resident Evil 5 Trailer"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="trailer-card">
+                <h3>RESIDENT EVIL 6</h3>
+                <div class="video-container">
+                    <iframe
+                        src="https://www.youtube.com/embed/VIDEO_ID_RE6"
+                        title="Resident Evil 6 Trailer"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="trailer-card">
+                <h3>RESIDENT EVIL 7</h3>
+                <div class="video-container">
+                    <iframe
+                        src="https://www.youtube.com/embed/VIDEO_ID_RE7"
+                        title="Resident Evil 7 Trailer"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="trailer-card">
+                <h3>RESIDENT EVIL VILLAGE</h3>
+                <div class="video-container">
+                    <iframe
+                        src="https://www.youtube.com/embed/VIDEO_ID_RE8"
+                        title="Resident Evil Village Trailer"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- INVENTORY -->
+    <section class="inventory-section" id="inventory">
+
+        <p class="section-label">FIELD EQUIPMENT</p>
+
+        <h2>INVENTORY</h2>
+
+        <p class="inventory-intro">
+            Drag the items around and arrange your inventory.
+        </p>
+
+        <div class="inventory">
+
+            <div class="inventory-grid">
+
+                <div class="inventory-slot">
+                    <div class="inventory-item" draggable="true">🔦</div>
+                </div>
+
+                <div class="inventory-slot">
+                    <div class="inventory-item" draggable="true">🔑</div>
+                </div>
+
+                <div class="inventory-slot">
+                    <div class="inventory-item" draggable="true">🌿</div>
+                </div>
+
+                <div class="inventory-slot">
+                    <div class="inventory-item" draggable="true">🧴</div>
+                </div>
+
+                <div class="inventory-slot">
+                    <div class="inventory-item" draggable="true">🔋</div>
+                </div>
+
+                <div class="inventory-slot"></div>
+                <div class="inventory-slot"></div>
+                <div class="inventory-slot"></div>
+                <div class="inventory-slot"></div>
+                <div class="inventory-slot"></div>
+                <div class="inventory-slot"></div>
+                <div class="inventory-slot"></div>
+                <div class="inventory-slot"></div>
+                <div class="inventory-slot"></div>
+                <div class="inventory-slot"></div>
+                <div class="inventory-slot"></div>
+                <div class="inventory-slot"></div>
+                <div class="inventory-slot"></div>
+
             </div>
 
         </div>
@@ -677,8 +860,7 @@
                 <h3>THE VILLAGE</h3>
                 <p>
                     Ethan's story continues in an isolated European
-                    village surrounded by supernatural-looking horrors
-                    with biological origins.
+                    village surrounded by terrifying biological horrors.
                 </p>
             </div>
 
@@ -696,11 +878,22 @@
 
         <p>MADE BY ANSHU</p>
 
+        <a
+            class="instagram-link"
+            href="https://www.instagram.com/as_anshu7/"
+            target="_blank"
+            rel="noopener noreferrer">
+            MY INSTAGRAM
+        </a>
+
         <span>
             UNOFFICIAL FAN PROJECT · NOT AFFILIATED WITH CAPCOM
         </span>
 
     </footer>
+
+
+    <script src="script.js"></script>
 
 </body>
 </html>
